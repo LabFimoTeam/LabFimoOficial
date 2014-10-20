@@ -22,39 +22,32 @@ class Brigada
     private $id;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="claveBrigada", type="text")
+     * @ORM\Column(name="claveBrigada", type="integer")
      */
     private $claveBrigada;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="claveClase", type="text")
+     * @ORM\Column(name="horaInicio", type="time")
      */
-    private $claveClase;
+    private $horaInicio;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="inicio", type="time")
+     * @ORM\Column(name="horaFin", type="time")
      */
-    private $inicio;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fin", type="time")
-     */
-    private $fin;
+    private $horaFin;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="disponible", type="boolean")
+     * @ORM\Column(name="esDisponible", type="boolean")
      */
-    private $disponible;
+    private $esDisponible;
 
     /**
      * @var string
@@ -70,13 +63,6 @@ class Brigada
      */
     private $comentarios;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="plan", type="integer")
-     */
-    private $plan;
-
 
     /**
      * Get id
@@ -91,7 +77,7 @@ class Brigada
     /**
      * Set claveBrigada
      *
-     * @param string $claveBrigada
+     * @param integer $claveBrigada
      * @return Brigada
      */
     public function setClaveBrigada($claveBrigada)
@@ -104,7 +90,7 @@ class Brigada
     /**
      * Get claveBrigada
      *
-     * @return string 
+     * @return integer 
      */
     public function getClaveBrigada()
     {
@@ -112,95 +98,72 @@ class Brigada
     }
 
     /**
-     * Set claveClase
+     * Set horaInicio
      *
-     * @param string $claveClase
+     * @param \DateTime $horaInicio
      * @return Brigada
      */
-    public function setClaveClase($claveClase)
+    public function setHoraInicio($horaInicio)
     {
-        $this->claveClase = $claveClase;
+        $this->horaInicio = $horaInicio;
 
         return $this;
     }
 
     /**
-     * Get claveClase
-     *
-     * @return string 
-     */
-    public function getClaveClase()
-    {
-        return $this->claveClase;
-    }
-
-    /**
-     * Set inicio
-     *
-     * @param \DateTime $inicio
-     * @return Brigada
-     */
-    public function setInicio($inicio)
-    {
-        $this->inicio = $inicio;
-
-        return $this;
-    }
-
-    /**
-     * Get inicio
+     * Get horaInicio
      *
      * @return \DateTime 
      */
-    public function getInicio()
+    public function getHoraInicio()
     {
-        return $this->inicio;
+        return $this->horaInicio;
     }
 
     /**
-     * Set fin
+     * Set horaFin
      *
-     * @param \DateTime $fin
+     * @param \DateTime $horaFin
      * @return Brigada
      */
-    public function setFin($fin)
+    public function setHoraFin($horaFin)
     {
-        $this->fin = $fin;
+        $this->horaFin = $horaFin;
 
         return $this;
     }
 
     /**
-     * Get fin
+     * Get horaFin
      *
      * @return \DateTime 
      */
-    public function getFin()
+    public function getHoraFin()
     {
-        return $this->fin;
+        return $this->horaFin;
     }
 
     /**
-     * Set disponible
+     * Set esDisponible
      *
-     * @param boolean $disponible
+     * @param boolean $esDisponible
      * @return Brigada
      */
-    public function setDisponible($disponible)
+    public function setEsDisponible($esDisponible)
     {
-        $this->disponible = $disponible;
+        $this->esDisponible = $esDisponible;
 
         return $this;
     }
 
     /**
-     * Get disponible
+     * Get esDisponible
      *
      * @return boolean 
      */
-    public function getDisponible()
+    public function getEsDisponible()
     {
-        return $this->disponible;
+        return $this->esDisponible;
     }
 
     /**
@@ -247,28 +210,5 @@ class Brigada
     public function getComentarios()
     {
         return $this->comentarios;
-    }
-
-    /**
-     * Set plan
-     *
-     * @param integer $plan
-     * @return Brigada
-     */
-    public function setPlan($plan)
-    {
-        $this->plan = $plan;
-
-        return $this;
-    }
-
-    /**
-     * Get plan
-     *
-     * @return integer 
-     */
-    public function getPlan()
-    {
-        return $this->plan;
     }
 }

@@ -5,12 +5,12 @@ namespace LabFimo\DALBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Practicas
+ * Practica
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="LabFimo\DALBundle\Entity\PracticasRepository")
+ * @ORM\Entity
  */
-class Practicas
+class Practica
 {
     /**
      * @var integer
@@ -31,23 +31,9 @@ class Practicas
     /**
      * @var boolean
      *
-     * @ORM\Column(name="disponible", type="boolean")
+     * @ORM\Column(name="esDisponible", type="boolean")
      */
-    private $disponible;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="descripcion", type="text")
-     */
-    private $descripcion;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="comentarios", type="text")
-     */
-    private $comentarios;
+    private $esDisponible;
 
     /**
      * @var integer
@@ -77,6 +63,20 @@ class Practicas
      */
     private $fechaFin;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text")
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comentarios", type="text")
+     */
+    private $comentarios;
+
 
     /**
      * Get id
@@ -92,7 +92,7 @@ class Practicas
      * Set clavePractica
      *
      * @param integer $clavePractica
-     * @return Practicas
+     * @return Practica
      */
     public function setClavePractica($clavePractica)
     {
@@ -112,79 +112,33 @@ class Practicas
     }
 
     /**
-     * Set disponible
+     * Set esDisponible
      *
-     * @param boolean $disponible
-     * @return Practicas
+     * @param boolean $esDisponible
+     * @return Practica
      */
-    public function setDisponible($disponible)
+    public function setEsDisponible($esDisponible)
     {
-        $this->disponible = $disponible;
+        $this->esDisponible = $esDisponible;
 
         return $this;
     }
 
     /**
-     * Get disponible
+     * Get esDisponible
      *
      * @return boolean 
      */
-    public function getDisponible()
+    public function getEsDisponible()
     {
-        return $this->disponible;
-    }
-
-    /**
-     * Set descripcion
-     *
-     * @param string $descripcion
-     * @return Practicas
-     */
-    public function setDescripcion($descripcion)
-    {
-        $this->descripcion = $descripcion;
-
-        return $this;
-    }
-
-    /**
-     * Get descripcion
-     *
-     * @return string 
-     */
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
-
-    /**
-     * Set comentarios
-     *
-     * @param string $comentarios
-     * @return Practicas
-     */
-    public function setComentarios($comentarios)
-    {
-        $this->comentarios = $comentarios;
-
-        return $this;
-    }
-
-    /**
-     * Get comentarios
-     *
-     * @return string 
-     */
-    public function getComentarios()
-    {
-        return $this->comentarios;
+        return $this->esDisponible;
     }
 
     /**
      * Set mesasDisponibles
      *
      * @param integer $mesasDisponibles
-     * @return Practicas
+     * @return Practica
      */
     public function setMesasDisponibles($mesasDisponibles)
     {
@@ -207,7 +161,7 @@ class Practicas
      * Set estudiantesPorMesa
      *
      * @param integer $estudiantesPorMesa
-     * @return Practicas
+     * @return Practica
      */
     public function setEstudiantesPorMesa($estudiantesPorMesa)
     {
@@ -230,7 +184,7 @@ class Practicas
      * Set fechaInicio
      *
      * @param \DateTime $fechaInicio
-     * @return Practicas
+     * @return Practica
      */
     public function setFechaInicio($fechaInicio)
     {
@@ -253,7 +207,7 @@ class Practicas
      * Set fechaFin
      *
      * @param \DateTime $fechaFin
-     * @return Practicas
+     * @return Practica
      */
     public function setFechaFin($fechaFin)
     {
@@ -270,5 +224,51 @@ class Practicas
     public function getFechaFin()
     {
         return $this->fechaFin;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     * @return Practica
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string 
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set comentarios
+     *
+     * @param string $comentarios
+     * @return Practica
+     */
+    public function setComentarios($comentarios)
+    {
+        $this->comentarios = $comentarios;
+
+        return $this;
+    }
+
+    /**
+     * Get comentarios
+     *
+     * @return string 
+     */
+    public function getComentarios()
+    {
+        return $this->comentarios;
     }
 }

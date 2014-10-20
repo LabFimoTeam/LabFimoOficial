@@ -15,18 +15,18 @@ class Estudiante
     /**
      * @var integer
      *
-     * @ORM\Column(name="matricula", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $matricula;
+    private $id;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="grupo", type="integer")
+     * @ORM\Column(name="matricula", type="integer")
      */
-    private $grupo;
+    private $matricula;
 
     /**
      * @var string
@@ -36,44 +36,51 @@ class Estudiante
     private $comentarios;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="plan", type="integer")
+     * @ORM\Column(name="medioCurso", type="decimal")
      */
-    private $plan;
+    private $medioCurso;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ordinario", type="decimal")
+     */
+    private $ordinario;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set matricula
+     *
+     * @param integer $matricula
+     * @return Estudiante
+     */
+    public function setMatricula($matricula)
+    {
+        $this->matricula = $matricula;
+
+        return $this;
+    }
 
     /**
      * Get matricula
      *
      * @return integer 
      */
-    public function geMatricula()
+    public function getMatricula()
     {
         return $this->matricula;
-    }
-
-    /**
-     * Set grupo
-     *
-     * @param integer $grupo
-     * @return Estudiante
-     */
-    public function setGrupo($grupo)
-    {
-        $this->grupo = $grupo;
-
-        return $this;
-    }
-
-    /**
-     * Get grupo
-     *
-     * @return integer 
-     */
-    public function getGrupo()
-    {
-        return $this->grupo;
     }
 
     /**
@@ -100,25 +107,48 @@ class Estudiante
     }
 
     /**
-     * Set plan
+     * Set medioCurso
      *
-     * @param integer $plan
+     * @param string $medioCurso
      * @return Estudiante
      */
-    public function setPlan($plan)
+    public function setMedioCurso($medioCurso)
     {
-        $this->plan = $plan;
+        $this->medioCurso = $medioCurso;
 
         return $this;
     }
 
     /**
-     * Get plan
+     * Get medioCurso
      *
-     * @return integer 
+     * @return string 
      */
-    public function getPlan()
+    public function getMedioCurso()
     {
-        return $this->plan;
+        return $this->medioCurso;
+    }
+
+    /**
+     * Set ordinario
+     *
+     * @param string $ordinario
+     * @return Estudiante
+     */
+    public function setOrdinario($ordinario)
+    {
+        $this->ordinario = $ordinario;
+
+        return $this;
+    }
+
+    /**
+     * Get ordinario
+     *
+     * @return string 
+     */
+    public function getOrdinario()
+    {
+        return $this->ordinario;
     }
 }
