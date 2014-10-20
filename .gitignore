@@ -1,0 +1,34 @@
+# -- Symfony2 -----------------------------------------
+app/bootstrap.php.cache
+app/bootstrap_cache.php.cache
+app/config/parameters.ini
+app/config/parameters.yml
+app/cache/*
+app/logs/*
+vendor/*
+
+# -- Composer -----------------------------------------
+composer.phar
+
+# -- Editores -----------------------------------------
+# vim
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# netbeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Linux
+.*
+!.gitignore
+!.htaccess
+*~
+

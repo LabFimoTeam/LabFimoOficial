@@ -1,0 +1,4 @@
+lab_fimo_dal:
+    resource: "@LabFimoDALBundle/Resources/config/routing.yml"
+    prefix:   /dal
+
