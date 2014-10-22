@@ -1,4 +1,13 @@
+lab_fimo_security:
+    resource: "@LabFimoSecurityBundle/Resources/config/routing.yml"
+    prefix:   /
+
 lab_fimo_dal:
     resource: "@LabFimoDALBundle/Resources/config/routing.yml"
     prefix: /
 
+login:
+    pattern:   /login
+    defaults:  { _controller: LabFimoSecurityBundle:Security:login }
+login_check:
+    pattern:   /login_check
