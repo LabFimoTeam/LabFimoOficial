@@ -1,3 +1,3 @@
 lab_fimo_dal_homepage:
-    path:     /hello/{name}
+    path:     /
     defaults: { _controller: LabFimoDALBundle:Default:index }
