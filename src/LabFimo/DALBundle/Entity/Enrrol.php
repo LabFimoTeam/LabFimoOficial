@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Enrrol
-{
+class Enrrol {
+
     /**
      * @var integer
      *
@@ -35,14 +35,24 @@ class Enrrol
      */
     private $asistencia;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Estudiante", inversedBy="enrroles")
+     * @ORM\JoinColumn(name="estudiante_id", referencedColumnName="id")
+     * */
+    private $estudiante;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Brigada", inversedBy="enrroles")
+     * @ORM\JoinColumn(name="brigada_id", referencedColumnName="id")
+     * */
+    private $brigada;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -52,8 +62,7 @@ class Enrrol
      * @param integer $mesaAsignada
      * @return Enrrol
      */
-    public function setMesaAsignada($mesaAsignada)
-    {
+    public function setMesaAsignada($mesaAsignada) {
         $this->mesaAsignada = $mesaAsignada;
 
         return $this;
@@ -64,8 +73,7 @@ class Enrrol
      *
      * @return integer 
      */
-    public function getMesaAsignada()
-    {
+    public function getMesaAsignada() {
         return $this->mesaAsignada;
     }
 
@@ -75,8 +83,7 @@ class Enrrol
      * @param boolean $asistencia
      * @return Enrrol
      */
-    public function setAsistencia($asistencia)
-    {
+    public function setAsistencia($asistencia) {
         $this->asistencia = $asistencia;
 
         return $this;
@@ -87,8 +94,16 @@ class Enrrol
      *
      * @return boolean 
      */
-    public function getAsistencia()
-    {
+    public function getAsistencia() {
         return $this->asistencia;
     }
+
+    public function getEstudiante() {
+        return $this->estudiante;
+    }
+
+    public function getBrigada() {
+        return $this->brigada;
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace LabFimo\DALBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Brigada
@@ -10,8 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Brigada
-{
+class Brigada {
+
+    public function __construct() {
+        $this->enrroles = new ArrayCollection();
+    }
+
     /**
      * @var integer
      *
@@ -63,14 +68,17 @@ class Brigada
      */
     private $comentarios;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Enrrol", mappedBy="brigada")
+     * */
+    private $enrroles;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -80,8 +88,7 @@ class Brigada
      * @param integer $claveBrigada
      * @return Brigada
      */
-    public function setClaveBrigada($claveBrigada)
-    {
+    public function setClaveBrigada($claveBrigada) {
         $this->claveBrigada = $claveBrigada;
 
         return $this;
@@ -92,8 +99,7 @@ class Brigada
      *
      * @return integer 
      */
-    public function getClaveBrigada()
-    {
+    public function getClaveBrigada() {
         return $this->claveBrigada;
     }
 
@@ -103,8 +109,7 @@ class Brigada
      * @param \DateTime $horaInicio
      * @return Brigada
      */
-    public function setHoraInicio($horaInicio)
-    {
+    public function setHoraInicio($horaInicio) {
         $this->horaInicio = $horaInicio;
 
         return $this;
@@ -115,8 +120,7 @@ class Brigada
      *
      * @return \DateTime 
      */
-    public function getHoraInicio()
-    {
+    public function getHoraInicio() {
         return $this->horaInicio;
     }
 
@@ -126,8 +130,7 @@ class Brigada
      * @param \DateTime $horaFin
      * @return Brigada
      */
-    public function setHoraFin($horaFin)
-    {
+    public function setHoraFin($horaFin) {
         $this->horaFin = $horaFin;
 
         return $this;
@@ -138,8 +141,7 @@ class Brigada
      *
      * @return \DateTime 
      */
-    public function getHoraFin()
-    {
+    public function getHoraFin() {
         return $this->horaFin;
     }
 
@@ -149,8 +151,7 @@ class Brigada
      * @param boolean $esDisponible
      * @return Brigada
      */
-    public function setEsDisponible($esDisponible)
-    {
+    public function setEsDisponible($esDisponible) {
         $this->esDisponible = $esDisponible;
 
         return $this;
@@ -161,8 +162,7 @@ class Brigada
      *
      * @return boolean 
      */
-    public function getEsDisponible()
-    {
+    public function getEsDisponible() {
         return $this->esDisponible;
     }
 
@@ -172,8 +172,7 @@ class Brigada
      * @param string $descripcion
      * @return Brigada
      */
-    public function setDescripcion($descripcion)
-    {
+    public function setDescripcion($descripcion) {
         $this->descripcion = $descripcion;
 
         return $this;
@@ -184,8 +183,7 @@ class Brigada
      *
      * @return string 
      */
-    public function getDescripcion()
-    {
+    public function getDescripcion() {
         return $this->descripcion;
     }
 
@@ -195,8 +193,7 @@ class Brigada
      * @param string $comentarios
      * @return Brigada
      */
-    public function setComentarios($comentarios)
-    {
+    public function setComentarios($comentarios) {
         $this->comentarios = $comentarios;
 
         return $this;
@@ -207,8 +204,17 @@ class Brigada
      *
      * @return string 
      */
-    public function getComentarios()
-    {
+    public function getComentarios() {
         return $this->comentarios;
     }
+
+    public function getClaveDeClase() {
+        return $this->claveBrigada;
+    }
+
+    public function setClaveDeClase($claveClase) {
+        $this->claveBrigada = $claveClase;
+        return $this;
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace LabFimo\DALBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Estudiante
@@ -12,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Estudiante
 {
+     
+    public function __construct() {
+        $this->enrroles = new ArrayCollection();
+    }
+    
     /**
      * @var integer
      *
@@ -49,6 +55,10 @@ class Estudiante
      */
     private $ordinario;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Enrrol", mappedBy="estudiante")
+     **/
+   private $enrroles;
 
     /**
      * Get id

@@ -5,13 +5,13 @@ namespace LabFimo\DALBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ClaveClase
+ * Instructor
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class ClaveClase {
-
+class Instructor
+{
     /**
      * @var integer
      *
@@ -22,11 +22,11 @@ class ClaveClase {
     private $id;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="claveClase", type="string", length=20)
+     * @ORM\Column(name="numeroEmpleado", type="integer")
      */
-    private $claveClase;
+    private $numeroEmpleado;
 
     /**
      * @var string
@@ -35,34 +35,48 @@ class ClaveClase {
      */
     private $descripcion;
 
+
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * Set claveClase
+     * Set numeroEmpleado
      *
-     * @param string $claveClase
-     * @return ClaveClase
+     * @param integer $numeroEmpleado
+     * @return Instructor
      */
-    public function setClaveClase($claveClase) {
-        $this->claveClase = $claveClase;
+    public function setNumeroEmpleado($numeroEmpleado)
+    {
+        $this->numeroEmpleado = $numeroEmpleado;
 
         return $this;
+    }
+
+    /**
+     * Get numeroEmpleado
+     *
+     * @return integer 
+     */
+    public function getNumeroEmpleado()
+    {
+        return $this->numeroEmpleado;
     }
 
     /**
      * Set descripcion
      *
      * @param string $descripcion
-     * @return ClaveClase
+     * @return Instructor
      */
-    public function setDescripcion($descripcion) {
+    public function setDescripcion($descripcion)
+    {
         $this->descripcion = $descripcion;
 
         return $this;
@@ -73,12 +87,8 @@ class ClaveClase {
      *
      * @return string 
      */
-    public function getDescripcion() {
+    public function getDescripcion()
+    {
         return $this->descripcion;
     }
-
-    public function getClaveClase() {
-        return $this->claveClase;
-    }
-
 }
