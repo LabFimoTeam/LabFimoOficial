@@ -5,8 +5,97 @@
    ========================================================================== */
 
 
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/*Iconos sociales 
+    http://www.okilla.com/578/resource-516-web-icons/
+*/
 
 
+header
+{
+    background-color: black;
+}
+
+header h1,h5
+{
+	color: white;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+#tituloHeader
+{
+	font-size: 60px;
+}
+#subtituloHeader
+{
+	font-size: 25px;
+}
+
+
+.color1{
+    background-color: cyan;
+}
+.color2{
+    background-color: yellow;
+}
+.color3{
+    background-color: red;
+}
+.color4{
+    background-color: pink;
+}
+.color5{
+    background-color: green;
+}
+.color6{
+    background-color: gray;
+}
+.color7{
+    background-color: #CC6633;
+}
+.color8{
+    background-color: #99FF99;
+}
+.color9{
+    background-color: #FF66CC;
+}
+
+.color10{
+    background-color: #660033;
+}
+.color11{
+    background-color: #3300FF;
+}
+.color12{
+    background-color: #CC6600;
+}
+.color13{
+    background-color: #999966;
+}
+.color14{
+    background-color: #66FF99;
+}
+.color15{
+    background-color: #CCCC00;
+}
+.color16{
+    background-color: #99CC66;
+}
+.color17{
+    background-color: #666699;
+}
+.color18{
+    background-color: #006600;
+}
+.color19{
+    background-color: #999966;
+}
+.color20{
+    background-color: #336666;
+}
 
 
 

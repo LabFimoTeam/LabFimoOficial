@@ -15,6 +15,10 @@ class Brigada {
 
     public function __construct() {
         $this->enrroles = new ArrayCollection();
+        $this->instructor = new Instructor();
+        $this->practica = new Practica();
+        $this->plan = new PlanDeEstudios();
+        $this->clase = new ClaveClase();
     }
 
     /**
@@ -72,6 +76,30 @@ class Brigada {
      * @ORM\OneToMany(targetEntity="Enrrol", mappedBy="brigada")
      * */
     private $enrroles;
+
+    /**
+     * @ORM\OneToOne(targetEntity="PlanDeEstudios")
+     * @ORM\JoinColumn(name="planEstudios_id", referencedColumnName="id")
+     * */
+    private $plan;
+
+    /**
+     * @ORM\OneToOne(targetEntity="ClaveClase")
+     * @ORM\JoinColumn(name="ClaveClase_id", referencedColumnName="id")
+     * */
+    private $clase;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Instructor", inversedBy="brigadas")
+     * @ORM\JoinColumn(name="instructor_id", referencedColumnName="id")
+     * */
+    private $instructor;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Practica", inversedBy="brigadas")
+     * @ORM\JoinColumn(name="practica_id", referencedColumnName="id")
+     * */
+    private $practica;
 
     /**
      * Get id
@@ -214,6 +242,76 @@ class Brigada {
 
     public function setClaveDeClase($claveClase) {
         $this->claveBrigada = $claveClase;
+        return $this;
+    }
+
+    /**
+     * Get Plan
+     * @return Brigada
+     */
+    public function getPlan() {
+        return $this->plan;
+    }
+
+    /**
+     * Set Plan
+     *
+     * @param string Plan
+     * @return Brigada
+     */
+    public function setPlan($plan) {
+        $this->plan = $plan;
+
+        return $this;
+    }
+
+    /**
+     * Get Clase
+     * @return Brigada
+     */
+    public function getClase() {
+        return $this->clase;
+    }
+
+    /**
+     * Set Clase
+     *
+     * @param integer Clave
+     * @return Brigada
+     */
+    public function setClase($clase) {
+        $this->clase = $clase;
+
+        return $this;
+    }
+
+    public function getEnrroles() {
+        return $this->enrroles;
+    }
+
+    public function setEnrroles($enrrol) {
+        $this->enrroles = $enrrol;
+
+        return $this;
+    }
+
+    public function getInstructor() {
+        return $this->instructor;
+    }
+
+    public function setInstrucor($instructor) {
+        $this->instructor = $instructor;
+
+        return $this;
+    }
+
+    public function getPractica() {
+        return $this->practica;
+    }
+
+    public function setPractica($practica) {
+        $this->practica = $practica;
+
         return $this;
     }
 

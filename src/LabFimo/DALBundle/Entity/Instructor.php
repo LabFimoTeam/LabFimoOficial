@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Instructor
 {
+    
+    public function __construct() {
+        $this->brigadas = new ArrayCollection();
+    }
+    
     /**
      * @var integer
      *
@@ -34,6 +39,11 @@ class Instructor
      * @ORM\Column(name="descripcion", type="text")
      */
     private $descripcion;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Brigada", mappedBy="instructor")
+     * */
+    private $brigadas;
 
 
     /**

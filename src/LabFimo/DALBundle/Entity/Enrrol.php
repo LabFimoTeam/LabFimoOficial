@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Enrrol {
 
+    public function __construct() {
+        $this->estudiante = new Estudiante();
+        $this->brigada = new Brigada();
+    }
+
     /**
      * @var integer
      *
@@ -102,8 +107,17 @@ class Enrrol {
         return $this->estudiante;
     }
 
+    public function setEstudiante($estudiante) {
+        $this->estudiante = $estudiante;
+    }
+
     public function getBrigada() {
         return $this->brigada;
+    }
+
+    public function setBrigada($brigada) {
+        $this->brigada = $brigada;
+        return $this;
     }
 
 }
