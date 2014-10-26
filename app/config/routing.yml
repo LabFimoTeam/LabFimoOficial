@@ -1,3 +1,11 @@
+lab_fimo_admin:
+    resource: "@LabFimoAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+lab_fimo_student:
+    resource: "@LabFimoStudentBundle/Resources/config/routing.yml"
+    prefix:   /
+
 lab_fimo_security:
     resource: "@LabFimoSecurityBundle/Resources/config/routing.yml"
     prefix:   /

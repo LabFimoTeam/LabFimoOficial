@@ -29,20 +29,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
-                    <h1 id="tituloHeader">LabFimo</h1>
-                    <h5 id="subtituloHeader" class="texto tamtext2">Organiza tus clases !!!</h5>
+                    <h1 id="tituloHeader"><a href="{{ url('login') }}">LabFimo</a></h1>
+                    <h5 id="subtituloHeader"><a href="{{ url('login') }}">Laboratorio Flexible Version 2.0</a></h5>
                 </div>
-                <div class="hidden-xs col-sm-6 col-md-4 col-lg-4 center">
+                <div class="hidden-xs col-sm-6 col-md-4 col-lg-4">
                     <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
                     <a href="#"><i class="fa fa-twitter-square fa-3x"></i></a>
                     <a href="#"><i class="fa fa-google-plus-square fa-3x"></i></a>
                     <a href="#"><i class="fa fa-youtube fa-3x"></i></a>
-                    <a href="#"><i class="fa fa-pinterest-square fa-3x"></i></a>
                 </div>
             </div>
         </div>
     </header>
-
 
 <nav class="navbar navbar-default">
             <div class="navbar-header">
@@ -72,15 +70,13 @@
             </div>
         </nav>
 
-        <div class="container color2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt dignissimos in placeat officia delectus rerum nemo iste assumenda quae, aut velit facere! Placeat saepe, deleniti aspernatur soluta fugit earum quis?
-
+        <div class="container"> 
             {% block contenido %}{% endblock %}
         </div>
 
 
         <footer>
-            <div class="container color3"><br>
+            <div class="container coprigy"><br>
                     <small><p class="text-center"> Derechos reservados &copy;2014 Erik Villegas </p></small>
                 </br></div>
         </footer>

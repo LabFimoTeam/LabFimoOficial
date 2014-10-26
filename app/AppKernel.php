@@ -17,7 +17,9 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new LabFimo\DALBundle\LabFimoDALBundle(),
-            new LabFimo\SecurityBundle\LabFimoSecurityBundle()
+            new LabFimo\SecurityBundle\LabFimoSecurityBundle(),
+            new LabFimo\StudentBundle\LabFimoStudentBundle(),
+            new LabFimo\AdminBundle\LabFimoAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

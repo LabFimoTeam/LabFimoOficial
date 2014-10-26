@@ -1,0 +1,4 @@
+services:
+#    lab_fimo_student.example:
+#        class: LabFimo\StudentBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
