@@ -3,13 +3,14 @@
 namespace LabFimo\SecurityBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
  
 /**
  * @ORM\Entity
- * @ORM\Table(name="usuarios")
+ * @ORM\Table(name="fos_user")
  */
-class Usuario implements UserInterface
+class Usuario Extends BaseUser
 {
     /**
      * @ORM\Id
@@ -17,48 +18,28 @@ class Usuario implements UserInterface
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
- 
+    
+    public function __construct()
+    {
+        // Mantener esta línea para llamar al constructor
+        // de la clase padre
+        parent::__construct();
+
+        // Aquí podremos añadir el código necesario.
+    }
+    
     /**
-     * @ORM\Column(name="usuario", type="string", length=255)
+     * Agrega un rol al usuario.
+     * @throws Exception
+     * @param Rol $rol 
      */
-    protected $usuario;
- 
-    /**
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    protected $password;
- 
-    /**
-     * @ORM\Column(name="salt", type="string", length=255)
-     */
-    protected $salt;
- 
-    /**
-     * @ORM\ManyToMany(targetEntity="Rol")
-     * @ORM\JoinTable(name="usuario_rol",
-     *     joinColumns={@ORM\JoinColumn(name="usuario_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="rol_id", referencedColumnName="id")}
-     * )
-     */
-    public function eraseCredentials() {
-        
+    public function addRole( $rol )
+    {
+	if($rol == 1) {
+	  array_push($this->roles, 'ROLE_ADMIN');
+	}
+	else if($rol == 2) {
+	  array_push($this->roles, 'ROLE_USER');
+	}
     }
-
-    public function getPassword() {
-        
-    }
-
-    public function getRoles() {
-        
-    }
-
-    public function getSalt() {
-        
-    }
-
-    public function getUsername() {
-        
-    }
-
-    protected $roles;
 }

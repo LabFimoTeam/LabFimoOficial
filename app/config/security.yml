@@ -1,37 +1,29 @@
 # app/config/security.yml
 security:
     encoders:
-        LabFimo\SecurityBundle\Entity\Usuario:
-            algorithm: sha512
-            encode-as-base64: true
-            iterations: 10
+        FOS\UserBundle\Model\UserInterface: sha512
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN: [ROLE_USER]
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
         
     providers:
-        user_db:
-            entity: { class: LabFimo\SecurityBundle\Entity\Usuario, property: usuario }
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
     firewalls:
-        secured_area:
+        main:
             pattern:    ^/
             anonymous:  ~
             form_login:
-                login_path:  login
+                provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-                check_path:  login_check
-                
-    providers:
-        in_memory:
-            memory:
-                users:
-                    ryan:  { password: ryanpass, roles: 'ROLE_USER' }
-                    admin: { password: kitten, roles: 'ROLE_ADMIN' }
+            logout:       true
+            anonymous:    true
                     
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         # Descomenta la siguiente línea para proteger también
         # la propia URL /admin
-        # - { path: ^/admin$, roles: ROLE_ADMIN }
+        # - { path: ^/admin$, roles: ROLE_ADMIN 

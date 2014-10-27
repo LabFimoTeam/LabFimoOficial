@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new LabFimo\SecurityBundle\LabFimoSecurityBundle(),
             new LabFimo\StudentBundle\LabFimoStudentBundle(),
             new LabFimo\AdminBundle\LabFimoAdminBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
