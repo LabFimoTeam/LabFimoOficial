@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class ClaveClase
-{
+class ClaveClase {
+
     /**
      * @var integer
      *
@@ -35,14 +35,12 @@ class ClaveClase
      */
     private $descripcion;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -52,21 +50,10 @@ class ClaveClase
      * @param string $claveClase
      * @return ClaveClase
      */
-    public function setClaveClase($claveClase)
-    {
+    public function setClaveClase($claveClase) {
         $this->claveClase = $claveClase;
 
         return $this;
-    }
-
-    /**
-     * Get claveClase
-     *
-     * @return string 
-     */
-    public function getClaveClase()
-    {
-        return $this->claveClase;
     }
 
     /**
@@ -75,8 +62,7 @@ class ClaveClase
      * @param string $descripcion
      * @return ClaveClase
      */
-    public function setDescripcion($descripcion)
-    {
+    public function setDescripcion($descripcion) {
         $this->descripcion = $descripcion;
 
         return $this;
@@ -87,8 +73,12 @@ class ClaveClase
      *
      * @return string 
      */
-    public function getDescripcion()
-    {
+    public function getDescripcion() {
         return $this->descripcion;
     }
+
+    public function getClaveClase() {
+        return $this->claveClase;
+    }
+
 }

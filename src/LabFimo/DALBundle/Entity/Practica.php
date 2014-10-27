@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Practica
 {
+    
+    public function __construct() {
+        $this->brigadas = new ArrayCollection();
+    }
+    
     /**
      * @var integer
      *
@@ -77,6 +82,10 @@ class Practica
      */
     private $comentarios;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Brigada", mappedBy="practica")
+     * */
+    private $brigadas;
 
     /**
      * Get id

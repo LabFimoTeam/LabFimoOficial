@@ -3,6 +3,7 @@
 namespace LabFimo\DALBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Estudiante
@@ -10,8 +11,13 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Estudiante
-{
+class Estudiante {
+
+    public function __construct() {
+        $this->enrroles = new ArrayCollection();
+        $this->plan = new PlanDeEstudios();
+    }
+
     /**
      * @var integer
      *
@@ -49,14 +55,23 @@ class Estudiante
      */
     private $ordinario;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Enrrol", mappedBy="estudiante")
+     * */
+    private $enrroles;
+
+    /**
+     * @ORM\OneToOne(targetEntity="PlanDeEstudios")
+     * @ORM\JoinColumn(name="planEstudios_id", referencedColumnName="id")
+     * */
+    private $plan;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -66,8 +81,7 @@ class Estudiante
      * @param integer $matricula
      * @return Estudiante
      */
-    public function setMatricula($matricula)
-    {
+    public function setMatricula($matricula) {
         $this->matricula = $matricula;
 
         return $this;
@@ -78,8 +92,7 @@ class Estudiante
      *
      * @return integer 
      */
-    public function getMatricula()
-    {
+    public function getMatricula() {
         return $this->matricula;
     }
 
@@ -89,8 +102,7 @@ class Estudiante
      * @param string $comentarios
      * @return Estudiante
      */
-    public function setComentarios($comentarios)
-    {
+    public function setComentarios($comentarios) {
         $this->comentarios = $comentarios;
 
         return $this;
@@ -101,8 +113,7 @@ class Estudiante
      *
      * @return string 
      */
-    public function getComentarios()
-    {
+    public function getComentarios() {
         return $this->comentarios;
     }
 
@@ -112,8 +123,7 @@ class Estudiante
      * @param string $medioCurso
      * @return Estudiante
      */
-    public function setMedioCurso($medioCurso)
-    {
+    public function setMedioCurso($medioCurso) {
         $this->medioCurso = $medioCurso;
 
         return $this;
@@ -124,8 +134,7 @@ class Estudiante
      *
      * @return string 
      */
-    public function getMedioCurso()
-    {
+    public function getMedioCurso() {
         return $this->medioCurso;
     }
 
@@ -135,8 +144,7 @@ class Estudiante
      * @param string $ordinario
      * @return Estudiante
      */
-    public function setOrdinario($ordinario)
-    {
+    public function setOrdinario($ordinario) {
         $this->ordinario = $ordinario;
 
         return $this;
@@ -147,8 +155,34 @@ class Estudiante
      *
      * @return string 
      */
-    public function getOrdinario()
-    {
+    public function getOrdinario() {
         return $this->ordinario;
     }
+
+    //Falta implementar el set enrroles
+    public function getEnrroles() {
+        return $this->enrroles;
+    }
+    
+
+    /**
+     * Get Plan
+     * @return Estudiante
+     */
+    public function getPlan() {
+        return $this->plan;
+    }
+
+    /**
+     * Set Plan
+     *
+     * @param string $plan
+     * @return Estudiante
+     */
+    public function setPlan($plan) {
+        $this->plan = $plan;
+
+        return $this;
+    }
+
 }

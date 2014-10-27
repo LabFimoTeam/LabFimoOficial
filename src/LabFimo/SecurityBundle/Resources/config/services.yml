@@ -1,0 +1,4 @@
+services:
+#    lab_fimo_security.example:
+#        class: LabFimo\SecurityBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

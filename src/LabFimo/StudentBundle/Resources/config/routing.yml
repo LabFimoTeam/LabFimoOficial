@@ -1,0 +1,3 @@
+lab_fimo_student_homepage:
+    path:     /estudiante
+    defaults: { _controller: LabFimoStudentBundle:Default:index }
