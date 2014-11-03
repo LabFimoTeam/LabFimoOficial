@@ -30,4 +30,9 @@ class SecurityController extends Controller {
         );
     }
 
+    public function getTokenAction() {
+        return new Response($this->container->get('form.csrf_provider')
+                        ->generateCsrfToken('authenticate'));
+    }
+
 }
