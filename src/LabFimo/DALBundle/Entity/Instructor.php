@@ -32,6 +32,12 @@ class Instructor
      * @ORM\Column(name="numeroEmpleado", type="integer")
      */
     private $numeroEmpleado;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="LabFimo\SecurityBundle\Entity\Usuario")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     **/
+    private $usuario;
 
     /**
      * @var string

@@ -22,21 +22,21 @@ class Usuario Extends BaseUser {
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=20)
+     * @ORM\Column(name="nombre", type="string", length=20,nullable=true)
      */
     protected $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apPaterno", type="string", length=20)
+     * @ORM\Column(name="apPaterno", type="string", length=20,nullable=true)
      */
     protected $apPaterno;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apMaterno", type="string", length=20)
+     * @ORM\Column(name="apMaterno", type="string", length=20,nullable=true)
      */
     protected $apMaterno;
 

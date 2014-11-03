@@ -42,6 +42,11 @@ class Estudiante {
     private $comentarios;
 
     /**
+     * @ORM\OneToOne(targetEntity="LabFimo\SecurityBundle\Entity\Usuario")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     **/
+    private $usuario;
+    /**
      * @var string
      *
      * @ORM\Column(name="medioCurso", type="decimal")
