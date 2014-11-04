@@ -9,7 +9,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Estudiante
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="LabFimo\DALBundle\Repository\EstudianteRepository")
+ * 
  */
 class Estudiante {
 
@@ -44,8 +45,9 @@ class Estudiante {
     /**
      * @ORM\OneToOne(targetEntity="LabFimo\SecurityBundle\Entity\Usuario")
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
-     **/
+     * */
     private $usuario;
+
     /**
      * @var string
      *
@@ -168,7 +170,6 @@ class Estudiante {
     public function getEnrroles() {
         return $this->enrroles;
     }
-    
 
     /**
      * Get Plan

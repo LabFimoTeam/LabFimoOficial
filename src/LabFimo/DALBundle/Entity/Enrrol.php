@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Enrrol
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity* @ORM\Entity(repositoryClass="LabFimo\DALBundle\Repository\EnrrolRepository")
  */
 class Enrrol {
 
@@ -51,73 +51,5 @@ class Enrrol {
      * @ORM\JoinColumn(name="brigada_id", referencedColumnName="id")
      * */
     private $brigada;
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId() {
-        return $this->id;
-    }
-
-    /**
-     * Set mesaAsignada
-     *
-     * @param integer $mesaAsignada
-     * @return Enrrol
-     */
-    public function setMesaAsignada($mesaAsignada) {
-        $this->mesaAsignada = $mesaAsignada;
-
-        return $this;
-    }
-
-    /**
-     * Get mesaAsignada
-     *
-     * @return integer 
-     */
-    public function getMesaAsignada() {
-        return $this->mesaAsignada;
-    }
-
-    /**
-     * Set asistencia
-     *
-     * @param boolean $asistencia
-     * @return Enrrol
-     */
-    public function setAsistencia($asistencia) {
-        $this->asistencia = $asistencia;
-
-        return $this;
-    }
-
-    /**
-     * Get asistencia
-     *
-     * @return boolean 
-     */
-    public function getAsistencia() {
-        return $this->asistencia;
-    }
-
-    public function getEstudiante() {
-        return $this->estudiante;
-    }
-
-    public function setEstudiante($estudiante) {
-        $this->estudiante = $estudiante;
-    }
-
-    public function getBrigada() {
-        return $this->brigada;
-    }
-
-    public function setBrigada($brigada) {
-        $this->brigada = $brigada;
-        return $this;
-    }
 
 }

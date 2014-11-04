@@ -8,15 +8,14 @@ use Doctrine\ORM\Mapping as ORM;
  * Instructor
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity* @ORM\Entity(repositoryClass="LabFimo\DALBundle\Repository\InstructorRepository")
  */
-class Instructor
-{
-    
+class Instructor {
+
     public function __construct() {
         $this->brigadas = new ArrayCollection();
     }
-    
+
     /**
      * @var integer
      *
@@ -32,11 +31,11 @@ class Instructor
      * @ORM\Column(name="numeroEmpleado", type="integer")
      */
     private $numeroEmpleado;
-    
+
     /**
      * @ORM\OneToOne(targetEntity="LabFimo\SecurityBundle\Entity\Usuario")
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
-     **/
+     * */
     private $usuario;
 
     /**
@@ -45,66 +44,10 @@ class Instructor
      * @ORM\Column(name="descripcion", type="text")
      */
     private $descripcion;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="Brigada", mappedBy="instructor")
      * */
     private $brigadas;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set numeroEmpleado
-     *
-     * @param integer $numeroEmpleado
-     * @return Instructor
-     */
-    public function setNumeroEmpleado($numeroEmpleado)
-    {
-        $this->numeroEmpleado = $numeroEmpleado;
-
-        return $this;
-    }
-
-    /**
-     * Get numeroEmpleado
-     *
-     * @return integer 
-     */
-    public function getNumeroEmpleado()
-    {
-        return $this->numeroEmpleado;
-    }
-
-    /**
-     * Set descripcion
-     *
-     * @param string $descripcion
-     * @return Instructor
-     */
-    public function setDescripcion($descripcion)
-    {
-        $this->descripcion = $descripcion;
-
-        return $this;
-    }
-
-    /**
-     * Get descripcion
-     *
-     * @return string 
-     */
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
 }

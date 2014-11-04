@@ -8,10 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
  * Maestro
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity* @ORM\Entity(repositoryClass="LabFimo\DALBundle\Repository\MaestroRepository")
  */
-class Maestro
-{
+class Maestro {
+
     /**
      * @var integer
      *
@@ -28,37 +28,4 @@ class Maestro
      */
     private $comentarios;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set comentarios
-     *
-     * @param string $comentarios
-     * @return Maestro
-     */
-    public function setComentarios($comentarios)
-    {
-        $this->comentarios = $comentarios;
-
-        return $this;
-    }
-
-    /**
-     * Get comentarios
-     *
-     * @return string 
-     */
-    public function getComentarios()
-    {
-        return $this->comentarios;
-    }
 }
