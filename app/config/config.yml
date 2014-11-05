@@ -75,4 +75,3 @@ fos_user:
     db_driver: orm
     firewall_name: main # nombre anterior
     user_class: LabFimo\SecurityBundle\Entity\Usuario
-    

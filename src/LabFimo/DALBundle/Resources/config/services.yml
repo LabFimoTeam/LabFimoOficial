@@ -1,4 +1,5 @@
 services:
-#    lab_fimo_dal.example:
-#        class: LabFimo\DALBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    DALServices: 
+        class: LabFimo\DALBundle\Repository\DALContext
+        arguments: [@Repositorio]
+        
