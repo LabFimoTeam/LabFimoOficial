@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: "@LabFimoDALBundle/Resources/config/services.yml" }
 
 framework:
     #esi:             ~
@@ -75,3 +76,11 @@ fos_user:
     db_driver: orm
     firewall_name: main # nombre anterior
     user_class: LabFimo\SecurityBundle\Entity\Usuario
+    service:
+        mailer: fos_user.mailer.twig_swift
+    resetting:
+        email:
+            template: LabFimoSecurityBundle:Security:resetting.email.html.twig
+            from_email:
+                address:        labfimo@fime.uanl.mx
+                sender_name:    Acme Demo Resetting

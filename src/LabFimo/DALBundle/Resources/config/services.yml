@@ -1,5 +1,3 @@
 services:
     DALServices: 
-        class: LabFimo\DALBundle\Repository\DALContext
-        arguments: [@Repositorio]
-        
+        class: LabFimo\DALBundle\Controller\DALController

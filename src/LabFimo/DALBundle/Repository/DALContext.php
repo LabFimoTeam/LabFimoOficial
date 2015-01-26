@@ -25,11 +25,19 @@ class DALContext extends EntityRepository {
      * @param type $Repositorio
      * @return Repositorio solicitado
      */
-    public static function GetDALManager($Repositorio) {
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository($Repositorio);
-
-        return $repo;
+//    public static function GetDALManagerWitRepository($Repositorio) {
+//        $em = $this->getDoctrine()->getManager();
+//        $repoString = "DALBundle:"+$Repositorio;
+//        $repo = $em->getRepository($repoString);
+//
+//        return $repo;
+//    }
+//    
+//    public function GetDALManager(){
+//        return $this->getDoctrine()->getManager();
+//    }
+    
+    public function GetManager() {
+        return parent::getEntityManager(); 
     }
-
 }

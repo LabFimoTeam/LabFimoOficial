@@ -1,6 +1,6 @@
 lab_fimo_admin:
     resource: "@LabFimoAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /manage
 
 lab_fimo_student:
     resource: "@LabFimoStudentBundle/Resources/config/routing.yml"
